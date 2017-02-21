@@ -1,0 +1,39 @@
+<nav class = "navbar">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <!-- pic icon -->
+      <a class = "navbar-left">
+        <%=image_tag("puzzle_jt.jpg", id: "pic1")%>
+      </a>
+      <!-- expandable button -->
+      <button type = "button" class="navbar-toggle collapsed"
+              data-toggle="collapse"  data-target="#nav-list">
+      <i class="fa fa-bars"></i></button>
+    </div>
+
+      <div class="navbar-collapse collapse"  id="nav-list">
+      <!-- 2. About/contact -->
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">About</a></li>
+        <li class="active"><a href="#">Contact</a></li>
+        <li role="separator" class="divider"></li>
+      </ul>
+      <!-- 3. search/signup -->
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href="#">Sign Up</a></li>
+        <li class="active"><a href="#">Login</a></li>
+      </ul>
+      <!-- 1. search field/form -->
+      <form  class="navbar-form  navbar-right">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search">
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit">
+                <span class="glyphicon glyphicon-search"></span>
+              </button>
+            </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  </nav>

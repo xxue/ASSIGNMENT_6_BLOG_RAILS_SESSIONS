@@ -1,0 +1,147 @@
+.navbar {
+  font-family: monospace, sans-serif;
+  letter-spacing: -0.5px;
+  font-size: 20px;
+}
+
+.navbar .container-fluid {
+  border-bottom: 2px solid grey;
+  display: block;
+  /*block is the key*/
+  width: 100%;
+  height: 100%;
+}
+
+#pic1 {
+height: 70px;
+width: 65px;
+}
+
+#nav-list {
+margin-top: 10px;
+}
+
+.collapse .divider {
+    height: 1px;
+    margin: 9px 0;
+    overflow: hidden;
+    background-color: grey;
+}
+
+/* main */
+@media all and (max-width: 767.5px) {
+    #mobilehide { display: none; }
+}
+
+#upper{
+  display: flex;
+}
+#upper .col-xs-7{
+  flex:3;
+  margin-left: 12px;
+}
+
+#upper .col-xs-3{
+  flex:2;
+  margin-right: 15px;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+
+.flexpic{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+#upper #sunset {
+  height: 400px;
+  width: 100%;
+  border: 3px solid beige
+}
+
+/*6 boxes*/
+#lower{
+    display: flex;
+    flex-wrap: wrap;
+    /*margin-left: 2px*/
+}
+
+
+#redsail {
+  height: auto;
+  width: 100%;
+  border: 2px solid beige
+}
+
+#deskboxes .block{
+  width:95%
+}
+
+#mybox {
+height: 220px;
+/*background-color: orange;*/
+width: 95%;
+margin-bottom: 25px;
+/*border: thin solid grey;*/
+}
+
+/*footer*/
+.footer {
+  color: grey;
+  margin-left: 8px;
+  font-size: 30px
+}
+
+/*postshow page*/
+#postupper {
+  min-width: 300px;
+  /*didn't work*/
+}
+
+#bio{
+  height: 700px;
+  width:100%;
+  border: 3px solid beige;
+  z-index: 0;
+}
+
+#comment1 {
+  display: block;
+  width: 90%;
+  font-family: arial, sans-serif;
+  font-size: 16px
+}
+
+/*comments*/
+#orca {
+  height: 125px;
+  width: 150px;
+  border: 2px solid beige;
+}
+
+#postlower{
+  display: block;
+  margin-left: 75px;
+}
+
+.leftbox {
+  display: flex;
+  flex-direction: row;
+}
+.rightbox{
+  margin-left: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 30%
+}
+
+#bottom {
+  display:block;
+  width: 80%;
+}
+
+#repeatcomments{
+  display:flex;
+  margin-bottom: 10px
+}

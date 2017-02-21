@@ -1,0 +1,97 @@
+<div class="container-fluid" id = "mobilehide">
+    <!-- featured post -->
+    <div class="row" id = "upper">
+      <!-- left, css flex: 3 -->
+      <div class="col-xs-7">
+          <a class = "flexpic">
+            <%=image_tag("2sail.jpg", id: "sunset")%>
+          </a>
+
+        <div class="row">
+          <div class="col-xs-1">
+            <%= button_to post_likes_path(@featured_post) do %>
+                <div class="fa fa-heart-o" style = "font-size: 23px; color: red"></div>
+            <% end %>
+          </div>
+
+          <div class="col-xs-1">
+            <%= @featured_post.likes.count %>
+          </div>
+
+          <div class="col-xs-1">
+          <% if @featured_post.likes.any? %>
+            <%= button_to like_path(@featured_post.likes.last), method: :delete do %>
+              unlike
+            <% end %>
+          <% end %>
+        </div>
+
+        <div class="col-xs-9">
+          <a href="#" class="fa fa-bookmark-o" style = "font-size: 23px; color: grey; float:right"></a>
+        </div>
+        </div>
+
+
+          <article class="col-sm-12 col-lg-12" style="font-family:San Francisco, sans-serif">
+          <h1 href = "#"><%= @featured_post.title %></h1>
+           <p><%= @featured_post.body %></p>
+         </article>
+      </div>
+
+      <!-- right: most liked css flex: 2 -->
+      <div class="col-xs-3 visible-md visible-lg">
+        <h3 style = "padding-left: 25px"> Most Liked </h3>
+          <ul style="list-style:none">
+            <% @popular.each do |post| %>
+              <a href="#"><li><%= post.title %></li></a>
+            <% end %>
+          </ul>
+      </div>
+    </div>
+  </div>
+
+    <div class="block" style = "font-size:30px; margin: 30px 20px 30px">
+      <button type="button" name="button">
+      <a href="posts/new">Write a New Post</a>
+      </button>
+    </div>
+
+  <!-- lower panels -->
+  <div class="container-fluid">
+    <div class="row" id = "lower">
+        <% @posts.each do |p| %>
+          <div class= "col-xs-12 col-md-4">
+             <%=image_tag("1redsail.jpg", id: "redsail")%>
+             <div class="row">
+               <div class="col-xs-2">
+                 <%= button_to post_likes_path(p) do %>
+                   <div class="fa fa-heart-o" aria-hidden="true" style = "font-size: 23px; color: red"></div>
+                   <% end %>
+               </div>
+
+                <div class="col-xs-1">
+                  <%= p.likes.count %>
+                </div>
+
+                <div class="col-xs-1">
+                  <% if p.likes.any? %>
+                    <%= button_to like_path(p.likes.last), method: :delete do %>
+                        unlike
+                      <% end %>
+                  <% end %>
+                </div>
+
+                <div class="col-xs-8">
+                  <a href="#" class="fa fa-bookmark-o" style = "font-size: 23px; color: grey; float:right"></a>
+                </div>
+              </div>
+<!-- div 2, post summaries, set div (mybox) width same (95%) as parent deskboxes-->
+            <div class = "col-xs-12 col-md-5 col-lg-4" id = "mybox">
+              <h3><a href="#"><%= link_to p.title, p %></a></h3>
+            </div>
+            </div>
+            <% end %>
+        </div>
+  </div>
+
+    <!-- <small>@posts.like</small> -->
