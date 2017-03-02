@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by_email params[:email]
-    if user&.authenticate(params[:password])
+    if user&&authenticate(params[:password])
       session[:user_id] = user.id
       redirect_to root_path, notice: "Signed in!"
     else
@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       render :new
     end
   end
-    # 
+    #
     # def edit
     #   # session = session[:user_id]
     #   # session[:user_id] = current_user.id
