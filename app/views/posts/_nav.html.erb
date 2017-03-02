@@ -11,17 +11,23 @@
       <i class="fa fa-bars"></i></button>
     </div>
 
-      <div class="navbar-collapse collapse"  id="nav-list">
-      <!-- 2. About/contact -->
+    <div class="navbar-collapse collapse"  id="nav-list">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">About</a></li>
-        <li class="active"><a href="#">Contact</a></li>
+        <li class="active"><%=link_to "HOME", root_path %></li>
+        <li class="active"><a href="#">CONTACT</a></li>
         <li role="separator" class="divider"></li>
       </ul>
-      <!-- 3. search/signup -->
+
       <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="#">Sign Up</a></li>
-        <li class="active"><a href="#">Login</a></li>
+        <% if current_user %>
+        <li><%= link_to current_user.first_name.upcase, edit_user_path(current_user.id)%></em></li>
+
+        <li><%= link_to "LOG OUT", sessions_path("whoever"), method: "delete"%></li>
+
+        <% else %>
+        <li><%= link_to "SIGN UP", new_user_path %></li>
+        <li><%= link_to "LOG IN", new_session_path %></li>
+        <% end %>
       </ul>
       <!-- 1. search field/form -->
       <form  class="navbar-form  navbar-right">
@@ -36,4 +42,4 @@
       </form>
     </div>
   </div>
-  </nav>
+</nav>

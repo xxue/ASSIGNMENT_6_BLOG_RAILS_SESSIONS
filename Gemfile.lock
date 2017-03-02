@@ -42,6 +42,7 @@ GEM
     autoprefixer-rails (6.7.4)
       execjs
     awesome_print (1.7.0)
+    bcrypt (3.1.11)
     bootstrap (4.0.0.alpha6)
       autoprefixer-rails (>= 6.0.3)
       sass (>= 3.4.19)
@@ -49,6 +50,7 @@ GEM
       sass (~> 3.2)
     builder (3.2.3)
     byebug (9.0.6)
+    cancancan (1.16.0)
     choice (0.2.0)
     coderay (1.1.1)
     coffee-rails (4.2.1)
@@ -186,9 +188,11 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails
   awesome_print
+  bcrypt (~> 3.1.7)
   bootstrap
   bootstrap-sass
   byebug
+  cancancan
   coffee-rails (~> 4.2)
   faker
   font-awesome-rails

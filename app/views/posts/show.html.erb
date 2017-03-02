@@ -1,29 +1,52 @@
 <div id = "postupper">
   <h2><%= @post.title %></h2>
   <%=image_tag("bubble1.jpg", id: "bio")%>
-  <a><i class="fa fa-heart-o" aria-hidden="true" style = "font-size: 23px; color: red; margin-left:30px"></i></a>
+  <div class="row">
+     <div class="col-xs-8">
+       <!-- responsive heart button-->
+       <div class="btn-group">
+       <%= button_to @post_likes_path,class:"btn btn-default", style: "padding:0px; border:none;" do %>
+           <i class="fa fa-heart-o fa-2x"style="color:red"></i>
+       <% end %>
+       </div>
+       <!-- count likes -->
+       <div class="btn-group">
+         <span style="font-size:20px"><%= @post.likes.count%></span>
+       </div>
+       <!-- responsive unike -->
+       <% if @post.likes.any? %>
+         <div class="btn-group">
+         <%= button_to like_path(@post.likes.last), class:"btn btn-default", style: "padding:2px; font-size: 15px", method: :delete do %>
+           unlike
+         <% end %>
+       <% end %>
+       </div>
+     </div>
+     <div class="col-xs-4">
+        <a href="#" class="fa fa-bookmark-o" style = "font-size: 22px; color: grey; float:right"></a>
+     </div>
+  </div>
 
-  <a><i class="fa fa-bookmark-o" aria-hidden="true" style = "font-size: 23px; color: grey; float:right; margin-right: 30px"></i></a>
   <div class="container-fluid" id = "comment1">
-  <p><%= @post.body %></p><br>
-  <p class="date"><%= @post.created_at %></p><br>
+    <p><%= @post.body %></p><br>
+    <p class="date"><%= @post.created_at %></p><br>
   </div>
 </div>
 
 <div class="row">
-<div class="col-xs-12" id = "postlower">
-  <% @post.comments.latest_first.each do |comment| %>
-    <div class="leftbox">
-      <%= image_tag("orca.jpg", id:"orca")%>
-      <div class="rightbox">
-        <a href="#"><strong>user</strong></a><br>
-        <p><%= comment.body %></p>
-      </div>
+  <div class="col-xs-12" id = "postlower">
+    <% @post.comments.latest_first.each do |comment| %>
+      <div class="leftbox">
+        <%= image_tag("orca.jpg", id:"orca")%>
+        <div class="rightbox">
+          <a href="#"><strong>user</strong></a><br>
+          <p><%= comment.body %></p>
+        </div>
     </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
 
-<!-- comments form -->
+  <!-- comments form -->
   <div class="container" id="bottom">
     <%= form_for [@post, @comment], html: {class: "nifty_form"} do |f| %>
       <%= f.text_area :body, size: "60x12" %>

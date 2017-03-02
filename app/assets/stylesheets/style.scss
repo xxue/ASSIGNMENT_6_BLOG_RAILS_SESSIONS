@@ -1,13 +1,13 @@
 .navbar {
-  font-family: monospace, sans-serif;
-  letter-spacing: -0.5px;
-  font-size: 20px;
+  font-size: 15px;
+}
+
+.navbar .navbar-nav > li > a{
+  color: #555555;
 }
 
 .navbar .container-fluid {
   border-bottom: 2px solid grey;
-  display: block;
-  /*block is the key*/
   width: 100%;
   height: 100%;
 }
@@ -47,13 +47,12 @@ margin-top: 10px;
   margin-left: 30px;
   margin-top: 30px;
 }
-
-
-.flexpic{
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
+//
+// .flexpic{
+//   display: flex;
+//   justify-content: flex-start;
+//   align-items: center;
+// }
 #upper #sunset {
   height: 400px;
   width: 100%;
@@ -64,14 +63,13 @@ margin-top: 10px;
 #lower{
     display: flex;
     flex-wrap: wrap;
-    /*margin-left: 2px*/
 }
 
 
 #redsail {
   height: auto;
   width: 100%;
-  border: 2px solid beige
+  border: 1px solid beige
 }
 
 #deskboxes .block{
@@ -118,11 +116,6 @@ margin-bottom: 25px;
   height: 125px;
   width: 150px;
   border: 2px solid beige;
-}
-
-#postlower{
-  display: block;
-  margin-left: 75px;
 }
 
 .leftbox {

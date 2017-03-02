@@ -10,6 +10,9 @@
 
   <body>
     <%= render '/posts/nav' %>
+    <div class="alert">
+          <h3><%= notice || alert %></h3>
+    </div>
     <%= yield %>
     <%= render '/posts/footer' %>
     </body>

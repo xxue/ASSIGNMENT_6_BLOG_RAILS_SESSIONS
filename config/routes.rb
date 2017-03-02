@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'posts#index'
+  get '/about'    => 'home#about', as: :about
+  get '/contact'  => 'home#contact', as: :contact
 
-  get '/about'    => 'home#about', as: :about_path
-  get '/contact'  => 'home#contact', as: :contact_path
-  get '/signup'   => 'home#signup', as: :signup_path
-  get '/login'    => 'home#login', as: :login_path
+  patch 'change_pw'  => 'users#change_password', as: :pw
+  # patch 'change_pw'  => 'users#change_password', as: :pw
 
 
   resources :posts do
@@ -13,6 +14,13 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  # patch '/posts/:post_id/comments' => 'comments#more_comments'
+  resources :sessions, only: [:new, :create, :edit] do
+    delete :destroy, on: :collection
+  end
+      # resources :users, only: [:new, :create]
 
+  resources :users
 end
+
+
+  # patch '/posts/:post_id/comments' => 'comments#more_comments'
