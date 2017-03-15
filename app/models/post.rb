@@ -7,6 +7,7 @@ class Post < ApplicationRecord
   # when post is deleted, comments are destroyed
 
   belongs_to :category
+  belongs_to :user #, optional: true
 
   validates :title, presence: true
   validates :body, presence: true
