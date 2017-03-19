@@ -5,11 +5,11 @@ class Ability
     # Define abilities for the passed in user here. For example:
     #
       user ||= User.new # guest user (not logged in)
-      if user.admin?
-        can :manage, :all
-      # else
-      #   can :read, :all
-      end
+      # if user.admin?
+      #   can :manage, :all
+      # # else
+      # #   can :read, :all
+      # end
 
       can :manage, Post do |p|
       # you should put an expression here that returns true / false. It should
@@ -17,6 +17,15 @@ class Ability
       # `manage` in this case
       p.user == user
     end
+
+      can :like, Post do |p|
+        user != p.user
+      end
+
+      cannot :like, Post do |p|
+         user == p.user
+      end
+
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.

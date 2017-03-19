@@ -4,9 +4,9 @@ class CommentsMailer < ApplicationMailer
     @comment   = comment
     @post = comment.post
     @owner    = @post.user
-    # if @owner.present?
-    #   mail(to: @owner.email, subject: 'You got a new comment to your post')
-    # end
+    if @owner.present?
+      mail(to: @owner.email, subject: 'You got a new comment to your post')
+    end
     render json: @owner
   end
 

@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   patch 'change_pw'  => 'users#change_password', as: :pw
   # patch 'change_pw'  => 'users#change_password', as: :pw
 
+   get 'posts/liked_post' => 'posts#liked_post', as: :liked_post
 
   resources :posts do
+
     resources :likes, only: [:create, :destroy], shallow: true
     resources :comments
   end

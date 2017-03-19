@@ -1,0 +1,5 @@
+<% @user.likes.each do |x| %>
+  <h2>Liked Post</h2><br>
+    <h2><%= x.post.title %></h2>
+    <p><%= x.post.body %></p><hr>
+<% end%>

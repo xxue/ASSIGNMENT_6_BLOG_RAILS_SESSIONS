@@ -1,7 +1,13 @@
 
 <div class="container-fluid" id = "mobilehide">
+  <div class="">
+    <%= link_to 'Liked Post', liked_post_path, class: 'btn btn-lg' %>
+  </div>
+
+
   <!-- upper pannel -->
   <div class="row" id = "upper">
+
     <!-- featured post -->
     <div class="col-xs-8">
       <a >
@@ -38,6 +44,9 @@
       <article class="col-sm-12 col-lg-12" style="font-family:San Francisco, sans-serif">
       <h1 href = "#"><%= @featured_post.title %></h1>
        <p><%= @featured_post.body %></p>
+       <div class="">
+         <%=@featured_post.user.full_name %>
+       </div>
       </article>
     </div>
     <!-- right: most liked -->
@@ -79,6 +88,10 @@
                <div class="btn-group">
                  <span style="font-size:20px"><%= p.likes.count%></span>
                </div>
+                <div class="">
+                  <%=p.user.full_name %>
+                </div>
+
                <!-- responsive unike -->
                <% if p.likes.any? %>
                  <div class="btn-group">

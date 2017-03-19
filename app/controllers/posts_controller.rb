@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
   # before_action: find_post
-  before_action(:find_post, {only: [:show, :edit, :update, :destroy, :update]})
+  before_action(:find_post, {only: [:show, :edit, :update, :destroy, :update ]})
 
   before_action :authorize, only: [:edit, :destroy, :update]
 
@@ -34,6 +34,12 @@ class PostsController < ApplicationController
 
   def edit
 
+  end
+
+  def liked_post
+    @user = current_user
+    
+    render :liked_post
   end
 
   def update

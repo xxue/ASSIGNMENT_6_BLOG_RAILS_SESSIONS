@@ -4,8 +4,14 @@ class LikesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @like = @post.likes.create
-    redirect_to posts_path
+    @like = @post.likes.new user: current_user
+
+    if cannot? :like, @post
+        redirect_to posts_path, alert: "cant like your own post"
+    else
+        @like.save
+        redirect_to posts_path
+    end
     # render json:params
   end
 
